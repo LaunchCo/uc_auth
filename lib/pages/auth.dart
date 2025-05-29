@@ -3,21 +3,21 @@ import 'package:uc_auth/pages/create_account.dart';
 import 'package:uc_auth/pages/signin.dart';
 import 'package:uc_auth/services/home_abstract_class.dart';
 
-class SignInView extends StatefulWidget {
+class AuthView extends StatefulWidget {
   final String createUserUrl;
   final HomeScreen homeScreen;
 
-  const SignInView({
+  const AuthView({
     super.key,
     required this.createUserUrl,
     required this.homeScreen,
   });
 
   @override
-  State<SignInView> createState() => _SignInViewState();
+  State<AuthView> createState() => _AuthViewState();
 }
 
-class _SignInViewState extends State<SignInView> {
+class _AuthViewState extends State<AuthView> {
   final body = TextStyle(fontSize: 16, color: Colors.black);
   bool signIn = true;
 
