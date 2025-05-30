@@ -100,6 +100,7 @@ class _AuthViewState extends State<AuthView> {
                           ),
                         ],
                       ),
+                      const SizedBox(height: 52),
                       signIn
                           ? SignIn(body: body, homeScreen: widget.homeScreen)
                           : CreateAccount(
