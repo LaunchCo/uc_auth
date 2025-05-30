@@ -41,53 +41,57 @@ class _AuthViewState extends State<AuthView> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        GestureDetector(
-                          onTap: () => setState(() {
-                            signIn = true;
-                          }),
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: signIn
-                                  ? Colors.white
-                                  : Colors.grey.shade100,
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(8),
-                                topRight: Radius.circular(8),
+                        Expanded(
+                          child: GestureDetector(
+                            onTap: () => setState(() {
+                              signIn = true;
+                            }),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: signIn
+                                    ? Colors.white
+                                    : Colors.grey.shade100,
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(8),
+                                  topRight: Radius.circular(8),
+                                ),
                               ),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'Sign In',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  color: Colors.black,
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  'Sign In',
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    color: Colors.black,
+                                  ),
                                 ),
                               ),
                             ),
                           ),
                         ),
-                        GestureDetector(
-                          onTap: () => setState(() {
-                            signIn = false;
-                          }),
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: !signIn
-                                  ? Colors.white
-                                  : Colors.grey.shade100,
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(8),
-                                topRight: Radius.circular(8),
+                        Expanded(
+                          child: GestureDetector(
+                            onTap: () => setState(() {
+                              signIn = false;
+                            }),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: !signIn
+                                    ? Colors.white
+                                    : Colors.grey.shade100,
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(8),
+                                  topRight: Radius.circular(8),
+                                ),
                               ),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'Create Account',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  color: Colors.black,
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  'Create Account',
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    color: Colors.black,
+                                  ),
                                 ),
                               ),
                             ),
