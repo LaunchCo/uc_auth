@@ -36,7 +36,7 @@ class _AuthViewState extends State<AuthView> {
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
