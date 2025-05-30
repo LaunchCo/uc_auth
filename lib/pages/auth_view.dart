@@ -46,12 +46,23 @@ class _AuthViewState extends State<AuthView> {
                             signIn = true;
                           }),
                           child: Container(
-                            color: signIn ? Colors.white : Colors.grey.shade100,
+                            decoration: BoxDecoration(
+                              color: signIn
+                                  ? Colors.white
+                                  : Colors.grey.shade100,
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(8),
+                                topRight: Radius.circular(8),
+                              ),
+                            ),
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Text(
                                 'Sign In',
-                                style: TextStyle(fontSize: 20, color: Colors.black),
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.black,
+                                ),
                               ),
                             ),
                           ),
@@ -61,12 +72,23 @@ class _AuthViewState extends State<AuthView> {
                             signIn = false;
                           }),
                           child: Container(
-                            color: !signIn ? Colors.white : Colors.grey.shade100,
+                            decoration: BoxDecoration(
+                              color: signIn
+                                  ? Colors.white
+                                  : Colors.grey.shade100,
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(8),
+                                topRight: Radius.circular(8),
+                              ),
+                            ),
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Text(
                                 'Create Account',
-                                style: TextStyle(fontSize: 20, color: Colors.black),
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.black,
+                                ),
                               ),
                             ),
                           ),
@@ -76,10 +98,10 @@ class _AuthViewState extends State<AuthView> {
                     signIn
                         ? SignIn(body: body, homeScreen: widget.homeScreen)
                         : CreateAccount(
-                      body: body,
-                      homeScreen: widget.homeScreen,
-                      createUserUrl: widget.createUserUrl,
-                    ),
+                            body: body,
+                            homeScreen: widget.homeScreen,
+                            createUserUrl: widget.createUserUrl,
+                          ),
                     const SizedBox(height: 32),
                   ],
                 ),
@@ -91,4 +113,3 @@ class _AuthViewState extends State<AuthView> {
     );
   }
 }
-

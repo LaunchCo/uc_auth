@@ -135,10 +135,10 @@ class _CreateAccountState extends State<CreateAccount> {
             padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
           ),
           child: _isLoading
-              ? const CircularProgressIndicator(color: Colors.black)
+              ? const CircularProgressIndicator(color: Colors.white)
               : Text(
                   'Sign In',
-                  style: widget.body.copyWith(color: Colors.black),
+                  style: widget.body.copyWith(color: Colors.white),
                 ),
         ),
       ],
