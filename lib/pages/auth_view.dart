@@ -73,7 +73,7 @@ class _AuthViewState extends State<AuthView> {
                           }),
                           child: Container(
                             decoration: BoxDecoration(
-                              color: signIn
+                              color: !signIn
                                   ? Colors.white
                                   : Colors.grey.shade100,
                               borderRadius: BorderRadius.only(
