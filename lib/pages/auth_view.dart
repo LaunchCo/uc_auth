@@ -26,55 +26,29 @@ class _AuthViewState extends State<AuthView> {
       backgroundColor: Colors.grey.shade100,
       body: SafeArea(
         child: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(32.0),
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        GestureDetector(
-                          onTap: () => setState(() {
-                            signIn = true;
-                          }),
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: signIn
-                                  ? Colors.white
-                                  : Colors.grey.shade100,
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(8),
-                                topRight: Radius.circular(8),
-                              ),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
-                              child: Text(
-                                'Sign In',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  color: Colors.black,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          child: GestureDetector(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          GestureDetector(
                             onTap: () => setState(() {
-                              signIn = false;
+                              signIn = true;
                             }),
                             child: Container(
                               decoration: BoxDecoration(
-                                color: !signIn
+                                color: signIn
                                     ? Colors.white
                                     : Colors.grey.shade100,
                                 borderRadius: BorderRadius.only(
@@ -83,34 +57,62 @@ class _AuthViewState extends State<AuthView> {
                                 ),
                               ),
                               child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Center(
-                                  child: Text(
-                                    'Create Account',
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      color: Colors.black,
+                                padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
+                                child: Text(
+                                  'Sign In',
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: GestureDetector(
+                              onTap: () => setState(() {
+                                signIn = false;
+                              }),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: !signIn
+                                      ? Colors.white
+                                      : Colors.grey.shade100,
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(8),
+                                    topRight: Radius.circular(8),
+                                  ),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Center(
+                                    child: Text(
+                                      'Create Account',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        color: Colors.black,
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                    signIn
-                        ? SignIn(body: body, homeScreen: widget.homeScreen)
-                        : CreateAccount(
-                            body: body,
-                            homeScreen: widget.homeScreen,
-                            createUserUrl: widget.createUserUrl,
-                          ),
-                    const SizedBox(height: 32),
-                  ],
+                        ],
+                      ),
+                      signIn
+                          ? SignIn(body: body, homeScreen: widget.homeScreen)
+                          : CreateAccount(
+                              body: body,
+                              homeScreen: widget.homeScreen,
+                              createUserUrl: widget.createUserUrl,
+                            ),
+                      const SizedBox(height: 32),
+                    ],
+                  ),
                 ),
               ),
-            ),
+            ],
           ),
         ),
       ),
