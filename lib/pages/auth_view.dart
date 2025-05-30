@@ -50,7 +50,7 @@ class _AuthViewState extends State<AuthView> {
                               decoration: BoxDecoration(
                                 color: signIn
                                     ? Colors.white
-                                    : Colors.grey.shade300,
+                                    : Colors.grey.shade100,
                                 borderRadius: BorderRadius.only(
                                   topLeft: Radius.circular(8),
                                   topRight: Radius.circular(8),
@@ -77,7 +77,7 @@ class _AuthViewState extends State<AuthView> {
                                 decoration: BoxDecoration(
                                   color: !signIn
                                       ? Colors.white
-                                      : Colors.grey.shade300,
+                                      : Colors.grey.shade100,
                                   borderRadius: BorderRadius.only(
                                     topLeft: Radius.circular(8),
                                     topRight: Radius.circular(8),
