@@ -1,11 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:uc_auth/services/api_service.dart';
-import 'package:uc_auth/services/home_abstract_class.dart';
 
 class SignIn extends StatefulWidget {
   final TextStyle body;
-  final HomeScreen homeScreen;
+  final Widget Function(Map<String, String> data) homeScreen;
 
   const SignIn({super.key, required this.body, required this.homeScreen});
 
@@ -89,7 +88,7 @@ class _SignInState extends State<SignIn> {
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => widget.homeScreen,
+                        builder: (context) => widget.homeScreen(response),
                       ),
                     );
                   } else {

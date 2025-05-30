@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:uc_auth/pages/create_account.dart';
 import 'package:uc_auth/pages/signin.dart';
-import 'package:uc_auth/services/home_abstract_class.dart';
 
 class AuthView extends StatefulWidget {
   final String createUserUrl;
-  final HomeScreen homeScreen;
+  final Widget Function(Map<String, String> data) homeScreen;
 
   const AuthView({
     super.key,

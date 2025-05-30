@@ -1,11 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:uc_auth/services/api_service.dart';
-import 'package:uc_auth/services/home_abstract_class.dart';
 
 class CreateAccount extends StatefulWidget {
   final TextStyle body;
-  final HomeScreen homeScreen;
+  final Widget Function(Map<String, String> data) homeScreen;
   final String createUserUrl;
 
   const CreateAccount({
@@ -117,7 +116,7 @@ class _CreateAccountState extends State<CreateAccount> {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => widget.homeScreen,
+                          builder: (context) => widget.homeScreen(response),
                         ),
                       );
                     } else {
