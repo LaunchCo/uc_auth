@@ -47,9 +47,12 @@ class _AuthViewState extends State<AuthView> {
                           }),
                           child: Container(
                             color: signIn ? Colors.white : Colors.grey.shade100,
-                            child: Text(
-                              'Sign In',
-                              style: TextStyle(fontSize: 28, color: Colors.black),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                'Sign In',
+                                style: TextStyle(fontSize: 20, color: Colors.black),
+                              ),
                             ),
                           ),
                         ),
@@ -59,15 +62,17 @@ class _AuthViewState extends State<AuthView> {
                           }),
                           child: Container(
                             color: !signIn ? Colors.white : Colors.grey.shade100,
-                            child: Text(
-                              'Create Account',
-                              style: TextStyle(fontSize: 28, color: Colors.black),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                'Create Account',
+                                style: TextStyle(fontSize: 20, color: Colors.black),
+                              ),
                             ),
                           ),
                         ),
                       ],
                     ),
-                    const SizedBox(height: 32),
                     signIn
                         ? SignIn(body: body, homeScreen: widget.homeScreen)
                         : CreateAccount(
@@ -75,6 +80,7 @@ class _AuthViewState extends State<AuthView> {
                       homeScreen: widget.homeScreen,
                       createUserUrl: widget.createUserUrl,
                     ),
+                    const SizedBox(height: 32),
                   ],
                 ),
               ),
