@@ -56,7 +56,7 @@ class _AuthViewState extends State<AuthView> {
                               ),
                             ),
                             child: Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
                               child: Text(
                                 'Sign In',
                                 style: TextStyle(
@@ -84,11 +84,13 @@ class _AuthViewState extends State<AuthView> {
                               ),
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child: Text(
-                                  'Create Account',
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    color: Colors.black,
+                                child: Center(
+                                  child: Text(
+                                    'Create Account',
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      color: Colors.black,
+                                    ),
                                   ),
                                 ),
                               ),
