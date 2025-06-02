@@ -137,7 +137,7 @@ class _CreateAccountState extends State<CreateAccount> {
           child: _isLoading
               ? const CircularProgressIndicator(color: Colors.white)
               : Text(
-                  'Sign In',
+                  'Create Account',
                   style: widget.body.copyWith(color: Colors.white),
                 ),
         ),
