@@ -36,7 +36,7 @@ class ApiService {
     String username,
     String email,
     String password,
-    String createUserUrl,
+    String app,
   ) async {
     try {
       final uri = Uri.parse('https://launchco.uc.r.appspot.com/api/register/');
@@ -77,19 +77,19 @@ class ApiService {
       final signInData = json.decode(signInResponse.body);
       final authToken = signInData['token'];
 
-      // Step 3: Create the user schedule
-      final scheduleResponse = await http.post(
-        Uri.parse('$createUserUrl/create-user/'),
+      // Step 3: Create the user createUser
+      final createUserResponse = await http.post(
+        Uri.parse('https://launchco.uc.r.appspot.com/api/$app/create-user/'),
         headers: {
           'Content-Type': 'application/json',
           'Authorization': 'Token $authToken',
         },
       );
 
-      if (scheduleResponse.statusCode != 200 &&
-          scheduleResponse.statusCode != 201) {
+      if (createUserResponse.statusCode != 200 &&
+          createUserResponse.statusCode != 201) {
         throw Exception(
-          'Failed to create user schedule: ${scheduleResponse.statusCode}',
+          'Failed to create user createUser: ${createUserResponse.statusCode}',
         );
       }
       return {"token": authToken, "expiry": signInData["expiry"]};

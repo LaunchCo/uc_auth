@@ -3,12 +3,12 @@ import 'package:uc_auth/pages/create_account.dart';
 import 'package:uc_auth/pages/signin.dart';
 
 class AuthView extends StatefulWidget {
-  final String createUserUrl;
+  final String app;
   final Widget Function(Map<String, String> data) homeScreen;
 
   const AuthView({
     super.key,
-    required this.createUserUrl,
+    required this.app,
     required this.homeScreen,
   });
 
@@ -106,7 +106,7 @@ class _AuthViewState extends State<AuthView> {
                           : CreateAccount(
                               body: body,
                               homeScreen: widget.homeScreen,
-                              createUserUrl: widget.createUserUrl,
+                              createUserUrl: widget.app,
                             ),
                       const SizedBox(height: 32),
                     ],
