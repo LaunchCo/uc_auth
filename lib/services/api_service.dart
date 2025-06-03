@@ -39,6 +39,7 @@ class ApiService {
     String app,
   ) async {
     try {
+      print(1);
       final uri = Uri.parse('https://launchco.uc.r.appspot.com/api/register/');
 
       final createResponse = await http.post(
@@ -50,13 +51,17 @@ class ApiService {
           'password': password,
         }),
       );
+      print(2);
 
       if (createResponse.statusCode != 201 &&
           createResponse.statusCode != 200) {
+        print(3);
         throw Exception(
           'Failed to create account: ${createResponse.statusCode}',
         );
       }
+
+      print(4);
 
       // Step 2: Sign in to get the auth token
       final credentials = base64Encode(utf8.encode('$email:$password'));
@@ -67,15 +72,21 @@ class ApiService {
           'Authorization': 'Basic $credentials',
         },
       );
+      print(5);
 
       if (signInResponse.statusCode != 200) {
+        print(6);
         throw Exception(
           'Failed to sign in after account creation: ${signInResponse.statusCode}',
         );
       }
 
+      print(7);
+
       final signInData = json.decode(signInResponse.body);
       final authToken = signInData['token'];
+
+      print(8);
 
       // Step 3: Create the user createUser
       final createUserResponse = await http.post(
@@ -86,14 +97,20 @@ class ApiService {
         },
       );
 
+      print(9);
+
       if (createUserResponse.statusCode != 200 &&
           createUserResponse.statusCode != 201) {
+        print(10);
         throw Exception(
           'Failed to create user createUser: ${createUserResponse.statusCode}',
         );
       }
+      print(11);
       return {"token": authToken, "expiry": signInData["expiry"]};
     } catch (e) {
+      print(12);
+      print(3);
       throw Exception('Account creation error: $e');
     }
   }
