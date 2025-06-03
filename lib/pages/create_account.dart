@@ -112,7 +112,9 @@ class _CreateAccountState extends State<CreateAccount> {
                       _passwordController.text,
                       widget.createUserUrl,
                     );
+                    print("test");
                     if (response["status"] == "200" || response["status"] == "201") {
+                      print("success");
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
@@ -120,6 +122,7 @@ class _CreateAccountState extends State<CreateAccount> {
                         ),
                       );
                     } else {
+                      print(response["error"]);
                       setState(() {
                         _errorMessage = response["error"];
                       });
