@@ -81,13 +81,11 @@ class ApiService {
           'Authorization': 'Token $authToken',
         },
       );
-      print("user created");
       if (createUserResponse.statusCode != 200 &&
           createUserResponse.statusCode != 201) {
         return {"error": "Failed to create user createUser: ${createUserResponse.statusCode}"};
       }
-      print("returning token");
-      return {"token": authToken, "expiry": signInData["expiry"]};
+      return {"token": authToken, "expiry": signInData["expiry"], "status": "200"};
     } catch (e) {
       return {"error":"Account creation error: $e"};
     }

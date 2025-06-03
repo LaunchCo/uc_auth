@@ -112,7 +112,6 @@ class _CreateAccountState extends State<CreateAccount> {
                       _passwordController.text,
                       widget.createUserUrl,
                     );
-                    print("test");
                     if (response["status"] == "200" || response["status"] == "201") {
                       print("success");
                       Navigator.pushReplacement(
@@ -122,7 +121,7 @@ class _CreateAccountState extends State<CreateAccount> {
                         ),
                       );
                     } else {
-                      print(response["error"]);
+                      print("error: ${response["error"]}");
                       setState(() {
                         _errorMessage = response["error"];
                       });
