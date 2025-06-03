@@ -53,9 +53,7 @@ class ApiService {
 
       if (createResponse.statusCode != 201 &&
           createResponse.statusCode != 200) {
-        throw Exception(
-          'Failed to create account: ${createResponse.statusCode}',
-        );
+        return {"error":"Failed to create account: ${createResponse.statusCode}"};
       }
 
       // Step 2: Sign in to get the auth token
@@ -69,9 +67,7 @@ class ApiService {
       );
 
       if (signInResponse.statusCode != 200) {
-        throw Exception(
-          'Failed to sign in after account creation: ${signInResponse.statusCode}',
-        );
+        return {"error": "Failed to sign in after account creation: ${signInResponse.statusCode}"};
       }
 
       final signInData = json.decode(signInResponse.body);
@@ -88,13 +84,11 @@ class ApiService {
 
       if (createUserResponse.statusCode != 200 &&
           createUserResponse.statusCode != 201) {
-        throw Exception(
-          'Failed to create user createUser: ${createUserResponse.statusCode}',
-        );
+        return {"error": "Failed to create user createUser: ${createUserResponse.statusCode}"};
       }
       return {"token": authToken, "expiry": signInData["expiry"]};
     } catch (e) {
-      throw Exception('Account creation error: $e');
+      return {"error":"Account creation error: $e"};
     }
   }
 }
