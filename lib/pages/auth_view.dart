@@ -25,7 +25,7 @@ class _AuthViewState extends State<AuthView> {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        bool web = constraints.maxWidth <= 600;
+        bool web = constraints.maxWidth >= 600;
         return Scaffold(
           backgroundColor: Colors.grey.shade200,
           body: SafeArea(
