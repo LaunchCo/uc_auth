@@ -4,9 +4,15 @@ import 'package:uc_auth/services/api_service.dart';
 
 class SignIn extends StatefulWidget {
   final TextStyle body;
+  final bool debug;
   final Widget Function(Map<String, String> data) homeScreen;
 
-  const SignIn({super.key, required this.body, required this.homeScreen});
+  const SignIn({
+    super.key,
+    required this.body,
+    required this.debug,
+    required this.homeScreen,
+  });
 
   @override
   State<SignIn> createState() => _SignInState();
@@ -83,6 +89,7 @@ class _SignInState extends State<SignIn> {
                   final response = await ApiService().signIn(
                     _usernameController.text,
                     _passwordController.text,
+                    widget.debug,
                   );
                   if (response["status"] == "200") {
                     Navigator.pushReplacement(

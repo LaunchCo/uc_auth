@@ -4,12 +4,14 @@ import 'package:uc_auth/services/api_service.dart';
 
 class CreateAccount extends StatefulWidget {
   final TextStyle body;
+  final bool debug;
   final Widget Function(Map<String, String> data) homeScreen;
   final String createUserUrl;
 
   const CreateAccount({
     super.key,
     required this.body,
+    required this.debug,
     required this.homeScreen,
     required this.createUserUrl,
   });
@@ -111,6 +113,7 @@ class _CreateAccountState extends State<CreateAccount> {
                       _emailController.text,
                       _passwordController.text,
                       widget.createUserUrl,
+                      widget.debug,
                     );
                     if (response["status"] == "200" || response["status"] == "201") {
                       Navigator.pushReplacement(
