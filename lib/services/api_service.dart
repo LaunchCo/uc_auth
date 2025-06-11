@@ -32,7 +32,7 @@ class ApiService {
         return {"status": "${response.statusCode}"};
       }
     } catch (e) {
-      return {"error": e.toString()};
+      return {"error": e.toString(), "status": "500"};
     }
   }
 
@@ -57,13 +57,6 @@ class ApiService {
         }),
       );
 
-      if (createResponse.statusCode != 201 &&
-          createResponse.statusCode != 200) {
-        return {
-          "error": "Failed to create account: ${createResponse.statusCode}",
-        };
-      }
-
       // Step 2: Sign in to get the auth token
       final credentials = base64Encode(utf8.encode('$email:$password'));
       final signInResponse = await http.post(
@@ -78,6 +71,7 @@ class ApiService {
         return {
           "error":
               "Failed to sign in after account creation: ${signInResponse.statusCode}",
+          "status": "500"
         };
       }
 
@@ -87,7 +81,7 @@ class ApiService {
       return {
         "token": authToken,
         "expiry": signInData["expiry"],
-        "status": "200",
+        "status": "201",
       };
     } catch (e) {
       return {"error": "Account creation error: $e"};
