@@ -6,14 +6,12 @@ class CreateAccount extends StatefulWidget {
   final TextStyle body;
   final bool debug;
   final Widget Function(Map<String, String> data) homeScreen;
-  final String createUserUrl;
 
   const CreateAccount({
     super.key,
     required this.body,
     required this.debug,
     required this.homeScreen,
-    required this.createUserUrl,
   });
 
   @override
@@ -112,7 +110,6 @@ class _CreateAccountState extends State<CreateAccount> {
                       _usernameController.text,
                       _emailController.text,
                       _passwordController.text,
-                      widget.createUserUrl,
                       widget.debug,
                     );
                     if (response["status"] == "200" || response["status"] == "201") {

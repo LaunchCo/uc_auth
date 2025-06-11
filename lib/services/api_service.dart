@@ -41,7 +41,6 @@ class ApiService {
     String username,
     String email,
     String password,
-    String app,
     bool debug,
   ) async {
     final url = debug ? debugUrl : prodUrl;
@@ -85,21 +84,6 @@ class ApiService {
       final signInData = json.decode(signInResponse.body);
       final authToken = signInData['token'];
 
-      // Step 3: Create the user createUser
-      final createUserResponse = await http.post(
-        Uri.parse('$url/api/$app/create-user/'),
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Token $authToken',
-        },
-      );
-      if (createUserResponse.statusCode != 200 &&
-          createUserResponse.statusCode != 201) {
-        return {
-          "error":
-              "Failed to create user createUser: ${createUserResponse.statusCode}",
-        };
-      }
       return {
         "token": authToken,
         "expiry": signInData["expiry"],
